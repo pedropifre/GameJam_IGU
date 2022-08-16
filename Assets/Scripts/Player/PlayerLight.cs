@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 using TMPro;
 
 public class PlayerLight : MonoBehaviour
 {
-    public Light2D light2d;
+    public UnityEngine.Rendering.Universal.Light2D light2d;
     public TextMeshProUGUI texto;
 
     private float lightCount = 0;
