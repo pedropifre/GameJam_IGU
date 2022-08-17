@@ -9,7 +9,7 @@ public class ItemManager : Singleton<ItemManager>
 {
    
 
-    public SOInt coins;
+    public SOInt flame;
 
     private void Start()
     {
@@ -18,11 +18,13 @@ public class ItemManager : Singleton<ItemManager>
 
     private void Reset()
     {
-        coins.value = 0;
+        flame.value = 1;
     }
 
-    public void AddCoins(int amount=1)
+  
+    
+    public void AddFlame(int amount=1)
     {
-        coins.value += amount;
+        flame.value += amount;
     }
 }

@@ -39,7 +39,7 @@ public class ItemCollactableBase : MonoBehaviour
     protected virtual void OnCollect() 
     {
         
-        VFXManager.Instance.PlayVFXByType(VFXManager.VFXType.COIN, transform.position);
+        //VFXManager.Instance.PlayVFXByType(VFXManager.VFXType.COIN, transform.position);
         if (audioSource != null) audioSource.Play();
         
     }
