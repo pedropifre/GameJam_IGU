@@ -15,9 +15,13 @@ public class Player : MonoBehaviour
     public SOInt lifeText;
 
     //public Animator animator;
+    [Header("Shoot")]
+    public UnityEngine.Rendering.Universal.Light2D light2D;
+    public ParticleSystem particleSystemShoot;
+    public bool isShooting;
 
     private float _curentSpeed;
-    private bool canJump = true;
+    [SerializeField]private bool canJump = true;
     private bool canRun = true;
 
     private Animator _currentPlayer;
@@ -59,8 +63,70 @@ public class Player : MonoBehaviour
     {
         HandleMoviment();
         HandleJump();
+        HandleShoot();
     }
+    private void HandleShoot()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if (!isShooting)
+            {
+                particleSystemShoot.Play();
+                StartCoroutine(fadeInAndOutRepeat(light2D, 1f, true));
+               
+                isShooting = true;
+            }
+            else
+            { 
+                particleSystemShoot.Stop();
+                StartCoroutine(fadeInAndOutRepeat(light2D, 1f,false));
+                isShooting = false;
 
+            }
+        }
+        
+
+    }
+    IEnumerator fadeInAndOut(UnityEngine.Rendering.Universal.Light2D lightToFade, bool fadeIn, float duration)
+    {
+        float minLuminosity = 0; // min intensity
+        float maxLuminosity = 2.22f; // max intensity
+
+        float counter = 0f;
+
+        //Set Values depending on if fadeIn or fadeOut
+        float a, b;
+
+        if (fadeIn)
+        {
+            a = minLuminosity;
+            b = maxLuminosity;
+        }
+        else
+        {
+            a = maxLuminosity;
+            b = minLuminosity;
+        }
+
+        float currentIntensity = lightToFade.intensity;
+
+        while (counter < duration)
+        {
+            counter += Time.deltaTime;
+
+            lightToFade.intensity = Mathf.Lerp(a, b, counter / duration);
+
+            yield return null;
+        }
+    }
+    IEnumerator fadeInAndOutRepeat(UnityEngine.Rendering.Universal.Light2D lightToFade, float duration,bool turn)
+    {
+
+        if(turn) yield return fadeInAndOut(lightToFade, true, duration);
+        else yield return fadeInAndOut(lightToFade, false, duration);
+    
+        
+    }
     private void HandleMoviment()
     {
         //verificar corrida
@@ -78,22 +144,16 @@ public class Player : MonoBehaviour
 
         //movimento
         
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             myRigidBody.velocity = new Vector2(-_curentSpeed, myRigidBody.velocity.y);
-            if(myRigidBody.transform.localScale.x != -1)
-            {
-                myRigidBody.transform.DOScaleX(-1, soPlayerSetup.playerSwypeDuration);
-            }
+            
             _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D))
         {
             myRigidBody.velocity = new Vector2(_curentSpeed, myRigidBody.velocity.y);
-            if (myRigidBody.transform.localScale.x != 1)
-            {
-                myRigidBody.transform.DOScaleX(1, soPlayerSetup.playerSwypeDuration);
-            }
+            
             _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
         }
         else
@@ -115,10 +175,11 @@ public class Player : MonoBehaviour
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canJump == true)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && canJump == true)
         {
             if (randomShoot != null) randomShoot.PlayRandom();
             canJump = false;
+            Debug.Log("djsbf");
             particleRun.gameObject.SetActive(false);
             myRigidBody.velocity = Vector2.up * soPlayerSetup.forceJump;
             myRigidBody.transform.localScale = Vector2.one;
@@ -149,6 +210,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             canJump = true;
+            Debug.Log("aqui");
            
         }
         
@@ -160,8 +222,8 @@ public class Player : MonoBehaviour
 
     private void HandleScaleJump()
     {
-        myRigidBody.transform.DOScaleY(soPlayerSetup.jumpScaleY, soPlayerSetup.animationDuration).SetLoops(2,LoopType.Yoyo).SetEase(soPlayerSetup.ease);
-        myRigidBody.transform.DOScaleX(soPlayerSetup.jumpScaleX, soPlayerSetup.animationDuration).SetLoops(2,LoopType.Yoyo).SetEase(soPlayerSetup.ease);
+        //myRigidBody.transform.DOScaleY(soPlayerSetup.jumpScaleY, soPlayerSetup.animationDuration).SetLoops(2,LoopType.Yoyo).SetEase(soPlayerSetup.ease);
+        //myRigidBody.transform.DOScaleX(soPlayerSetup.jumpScaleX, soPlayerSetup.animationDuration).SetLoops(2,LoopType.Yoyo).SetEase(soPlayerSetup.ease);
         //fazer a anima��o de queda com a fun��o do DoTween para esperar a anterior acabar
     }
     public void SpawnPlayer()
