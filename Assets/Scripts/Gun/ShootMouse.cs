@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class ShootMouse : MonoBehaviour
 {
-    public Camera _mainCam;
-    public Vector3 _mousePos;
+    private Camera _mainCam;
+    private Vector3 _mousePos;
+    public float pointMidleAngle = 1.67f;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class ShootMouse : MonoBehaviour
 
 
         VScreen.x = Input.mousePosition.x;
-        VScreen.y = Input.mousePosition.y *1.7f;
+        VScreen.y = Input.mousePosition.y *pointMidleAngle;
         VScreen.z = _mainCam.transform.position.z;
 
         _mousePos = Camera.main.ScreenToWorldPoint(VScreen)-transform.position;
@@ -28,7 +29,7 @@ public class ShootMouse : MonoBehaviour
         //_mousePos.Normalize();
 
 
-        float rotz = Mathf.Atan2(_mousePos.y, _mousePos.x) * Mathf.Rad2Deg-180;
+        float rotz = Mathf.Atan2(_mousePos.y, _mousePos.x) * Mathf.Rad2Deg;
 
         //Debug.Log(rotz);
         transform.rotation = Quaternion.Euler(0, 0, rotz);
