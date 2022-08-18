@@ -7,11 +7,11 @@ public class FlipPlayer : MonoBehaviour
     private bool facingRight = true;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) && !facingRight)
+        if (Input.GetKeyDown(KeyCode.A) && facingRight)
         {
             Flip();
         }
-        if (Input.GetKeyDown(KeyCode.D) && facingRight)
+        if (Input.GetKeyDown(KeyCode.D) && !facingRight)
         {
             Flip();
         }

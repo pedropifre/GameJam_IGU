@@ -177,8 +177,8 @@ public class Player : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && canJump == true)
         {
+            _currentPlayer.SetBool(soPlayerSetup.triggerJump,true);
             if (randomShoot != null) randomShoot.PlayRandom();
-            canJump = false;
             Debug.Log("djsbf");
             particleRun.gameObject.SetActive(false);
             myRigidBody.velocity = Vector2.up * soPlayerSetup.forceJump;
@@ -186,6 +186,7 @@ public class Player : MonoBehaviour
 
             DOTween.Kill(myRigidBody.transform);
 
+            canJump = false;
             HandleScaleJump();
             PlayJumpVFX();
         }
@@ -210,6 +211,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             canJump = true;
+            _currentPlayer.SetBool(soPlayerSetup.triggerJump, false);
             Debug.Log("aqui");
            
         }

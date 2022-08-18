@@ -24,6 +24,7 @@ public class SOPlayer : ScriptableObject
     public string boolRun = "Run";
     public string triggerDeath = "Death";
     public string triggerLive = "Live";
+    public string triggerJump = "Jump";
     public float playerSwypeDuration = .1f;
 
     [Header("Life")]
