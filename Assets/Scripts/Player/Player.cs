@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
     private float _curentSpeed;
     [SerializeField]private bool canJump = true;
-    private bool canRun = true;
+    private bool canMove = true;
 
     private Animator _currentPlayer;
     public AudioRandomPlayClips randomShoot;
@@ -61,9 +61,12 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-        HandleMoviment();
-        HandleJump();
-        HandleShoot();
+        if (canMove)
+        {
+            HandleMoviment();
+            HandleJump();
+            HandleShoot();
+        }
     }
     private void HandleShoot()
     {
@@ -179,7 +182,6 @@ public class Player : MonoBehaviour
         {
             _currentPlayer.SetBool(soPlayerSetup.triggerJump,true);
             if (randomShoot != null) randomShoot.PlayRandom();
-            Debug.Log("djsbf");
             particleRun.gameObject.SetActive(false);
             myRigidBody.velocity = Vector2.up * soPlayerSetup.forceJump;
             myRigidBody.transform.localScale = Vector2.one;
@@ -198,6 +200,32 @@ public class Player : MonoBehaviour
         
         //if (particlePulo != null) particlePulo.Play();
     }
+
+    public void PlayDamageEffect(string position)
+    {
+        if (position == "Left")
+        {
+            StartCoroutine(RecoilPlayer(-5f));
+        }
+        else if (position == "Right")
+        {
+            StartCoroutine(RecoilPlayer(5f));
+        }
+        else if (position == "Up")
+        {
+            gameObject.transform.DOMoveY(transform.position.y + 5f, .5f).SetEase(Ease.OutBack);
+            //Vector2 pulo = new Vector2(2, 0);
+            //gameObject.transform.DOJump(pulo, 2f, 1, .5f);
+        }
+    }
+
+    IEnumerator RecoilPlayer(float RecoilDirection)
+    {
+        canMove = false;
+        gameObject.transform.DOMoveX(transform.position.x + RecoilDirection, .5f);
+        yield return new WaitForSeconds(.5f);
+        canMove = true;
+    }
     private void PlayRunVFX()
     {
         particleRun.gameObject.SetActive(true);
@@ -212,7 +240,6 @@ public class Player : MonoBehaviour
         {
             canJump = true;
             _currentPlayer.SetBool(soPlayerSetup.triggerJump, false);
-            Debug.Log("aqui");
            
         }
         

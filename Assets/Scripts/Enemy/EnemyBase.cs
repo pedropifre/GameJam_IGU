@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class EnemyBase : MonoBehaviour
 {
-    public int damage = 10;
+    public int damage = 2;
 
     public Animator animator;
     public string triggerAttack = "Attack";
@@ -14,7 +14,9 @@ public class EnemyBase : MonoBehaviour
     public HealthBase healthBase;
     public float timeToDestroy = 1f;
     public AudioSource audioSource;
-    
+    public float EnemyKillYLimit;
+    public bool isJumpable;
+
     [Header("Setup")]
     public SOPlayer soPlayerSetup;
     
@@ -38,13 +40,45 @@ public class EnemyBase : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        var health = collision.gameObject.GetComponent<HealthBase>();
-
-        if(health != null)
+        if (collision.transform.tag == "Player")
         {
-            health.Damage(damage);
-            PlayAttackAnimation();
+
+            var health = collision.gameObject.GetComponent<HealthBase>();
+            var player = collision.gameObject.GetComponent<Player>();
+
+            if(health != null)
+            {
+                health.Damage(damage);
+                
+                //PlayAttackAnimation();
+            }
+
+            if (collision.transform.position.x < transform.position.x &&
+                collision.transform.position.y < transform.position.y + EnemyKillYLimit)
+            {
+                Debug.Log("Esquerdo");
+                player.PlayDamageEffect("Left");
+
+            }
+            else if (collision.transform.position.x > transform.position.x &&
+                collision.transform.position.y < transform.position.y + EnemyKillYLimit)
+            {
+                Debug.Log("Direito");
+                player.PlayDamageEffect("Right");
+            }
+            else if (isJumpable &&
+                collision.transform.position.y > transform.position.y + EnemyKillYLimit)
+            {
+                Debug.Log("Hit Jump");
+                player.PlayDamageEffect("Up");
+            }
+            else if (!isJumpable &&
+                collision.transform.position.y > transform.position.y + EnemyKillYLimit)
+            {
+                Debug.Log("cima");
+                player.PlayDamageEffect("Right");
+            }
+
         }
     }
 
@@ -61,4 +95,6 @@ public class EnemyBase : MonoBehaviour
     {
         healthBase.Damage(damage);
     }
+
+    
 }

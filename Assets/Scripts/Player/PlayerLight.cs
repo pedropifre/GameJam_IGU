@@ -18,6 +18,7 @@ public class PlayerLight : MonoBehaviour
     private void Start()
     {
         texto.text = "Player Torch = 0";
+        SOFlame.value = 3;
     }
     void Update()
     {
