@@ -14814,7 +14814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1612392069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15061,8 +15061,9 @@ GameObject:
   - component: {fileID: 1675340135}
   - component: {fileID: 1675340134}
   - component: {fileID: 1675340133}
+  - component: {fileID: 1675340138}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy_Scroll
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15076,7 +15077,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675340131}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.984295, y: -2.836296, z: 0}
+  m_LocalPosition: {x: -6.984295, y: -2.97, z: 0}
   m_LocalScale: {x: 2.0147846, y: 2.0147846, z: 2.0147846}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15101,6 +15102,7 @@ MonoBehaviour:
   - {fileID: 674566638}
   - {fileID: 276240439}
   duration: 3
+  alive: 1
 --- !u!50 &1675340134
 Rigidbody2D:
   serializedVersion: 4
@@ -15188,6 +15190,27 @@ MonoBehaviour:
   EnemyKillYLimit: 1
   isJumpable: 1
   soPlayerSetup: {fileID: 11400000, guid: 03047ed4d14cdb544ba69d1d879ad4a9, type: 2}
+  enemyScroll: {fileID: 1675340133}
+--- !u!95 &1675340138
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675340131}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c92c5ab32ea5cb846ab362b8f7bab64f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
@@ -15609,7 +15632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2138189906
 MonoBehaviour:
   m_ObjectHideFlags: 0

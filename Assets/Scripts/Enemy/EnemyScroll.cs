@@ -8,6 +8,7 @@ public class EnemyScroll : MonoBehaviour
     public GameObject Enemy; 
     public List<Transform> positions;
     public float duration = 1f;
+    public bool alive = true;
 
 
     private int _index = 0;
@@ -34,7 +35,7 @@ public class EnemyScroll : MonoBehaviour
     {
         float time = 0;
 
-        while (true)
+        while (true && alive)
         {
             var currentPosition = transform.position;
 

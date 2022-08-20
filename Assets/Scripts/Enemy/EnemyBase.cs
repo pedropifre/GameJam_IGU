@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using DG.Tweening;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class EnemyBase : MonoBehaviour
 
     [Header("Setup")]
     public SOPlayer soPlayerSetup;
-    
+
+    public EnemyScroll enemyScroll;
 
     private void Awake()
     {
@@ -71,6 +73,9 @@ public class EnemyBase : MonoBehaviour
             {
                 Debug.Log("Hit Jump");
                 player.PlayDamageEffect("Up");
+                enemyScroll.alive = false;
+                OnEnemyKill();
+                
             }
             else if (!isJumpable &&
                 collision.transform.position.y > transform.position.y + EnemyKillYLimit)
@@ -82,6 +87,8 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
+
+ 
     private void PlayAttackAnimation()
     {
         animator.SetTrigger(triggerAttack);
