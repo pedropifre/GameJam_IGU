@@ -9,7 +9,7 @@ public class ItemCollactableFlame : ItemCollactableBase
     protected override void OnCollect()
     {
         base.OnCollect();
-        Debug.Log("Coletado");
+        //Debug.Log("Coletado");
         ItemManager.Instance.AddFlame(3);
         colliderp.enabled = false;
     }
