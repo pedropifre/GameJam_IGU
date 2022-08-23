@@ -19,10 +19,9 @@ public class FlipPlayer : MonoBehaviour
 
     public void Flip()
     {
-        Vector3 currentScale = gameObject.transform.localScale;
-        currentScale.x *= -1;
-        gameObject.transform.localScale = currentScale;
-
+        if(facingRight) gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        else gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        Debug.Log(facingRight);
         facingRight = !facingRight;
     }
 }

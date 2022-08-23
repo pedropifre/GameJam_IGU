@@ -26,12 +26,12 @@ public class HealthBase : MonoBehaviour
         }
     }
     
-    private void Init()
+    public void Init()
     {
         _isDead = false;
         _currentLife = startLife;
     }
-    public void Damage(int damage)
+    public virtual void Damage(int damage)
     {
         if (_isDead) return;
         _currentLife -= damage;

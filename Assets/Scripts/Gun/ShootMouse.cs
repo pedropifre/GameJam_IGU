@@ -8,6 +8,7 @@ public class ShootMouse : MonoBehaviour
     private Camera _mainCam;
     private Vector3 _mousePos;
     public float pointMidleAngle = 1.67f;
+    private bool _isOn = false;
 
     private void Start()
     {
@@ -33,6 +34,8 @@ public class ShootMouse : MonoBehaviour
 
         //Debug.Log(rotz);
         transform.rotation = Quaternion.Euler(0, 0, rotz);
+
+        
     }
 
 }

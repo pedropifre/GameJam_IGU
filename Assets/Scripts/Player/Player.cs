@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
 {
     public Rigidbody2D myRigidBody;
     public HealthBase healthBase;
-    public GameObject spawnPoint;
+    public HealthFlame healthFlame;
+    public Transform spawnPoint;
     //public GameObject telaFinal;
 
     [Header("Setup")]
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
 
         _currentPlayer = Instantiate(soPlayerSetup.player, transform);
         _currentPlayer.GetComponent<PlayerDestroyerHelper>().player = GameObject.FindObjectOfType<Player>();
+        healthFlame.animator = _currentPlayer.GetComponent<Animator>();
 
     }
 
@@ -52,9 +54,10 @@ public class Player : MonoBehaviour
     private void OnPlayerKill()
     {
         healthBase.onKill -= OnPlayerKill;
-        
         _currentPlayer.SetTrigger(soPlayerSetup.triggerDeath);
         
+
+
     }
 
 
