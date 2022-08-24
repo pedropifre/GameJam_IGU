@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Fundo
   layers:
   - Default
   - TransparentFX
@@ -40,9 +41,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Fundo
+    uniqueID: 623824261
+    locked: 0
+  - name: Fore
+    uniqueID: 2184779377
     locked: 0
   - name: Itens
     uniqueID: 2451759631
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0

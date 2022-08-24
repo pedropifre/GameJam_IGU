@@ -21,13 +21,7 @@ public class FlashCollor : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            Flash();
-        }
-    }
+  
 
     public void Flash()
     {
