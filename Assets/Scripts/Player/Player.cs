@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
     private void OnPlayerKill()
     {
         healthBase.onKill -= OnPlayerKill;
-        _currentPlayer.SetTrigger(soPlayerSetup.triggerDeath);
+        //_currentPlayer.SetTrigger(soPlayerSetup.triggerDeath);
         
 
 

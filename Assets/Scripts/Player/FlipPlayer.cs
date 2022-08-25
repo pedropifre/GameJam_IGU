@@ -21,7 +21,7 @@ public class FlipPlayer : MonoBehaviour
     {
         if(facingRight) gameObject.GetComponent<SpriteRenderer>().flipX = true;
         else gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        Debug.Log(facingRight);
+        //Debug.Log(facingRight);
         facingRight = !facingRight;
     }
 }

@@ -96,6 +96,7 @@ public class EnemyBase : MonoBehaviour
     private void PlayDeathAnimation()
     {
         animator.SetTrigger(triggerDeath);
+        gameObject.GetComponent<Collider2D>().enabled = false;
     }
    
     public void Damage(int damage)

@@ -17,12 +17,12 @@ public class PlayerLight : MonoBehaviour
     private bool rngTrue = true;
     private void Start()
     {
-        texto.text = "Player Torch = 0";
-        SOFlame.flameSize = 3;
+        texto.text = "1";
+        SOFlame.flameSize = 4;
     }
     void Update()
     {
-        texto.text = "Player Torch = " + SOFlame.flameSize.ToString();
+        texto.text =  (SOFlame.flameSize-3).ToString();
         StartCoroutine(RandomLight());
     }
 

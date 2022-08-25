@@ -7,11 +7,15 @@ public class FlamethrowerBase : MonoBehaviour
     public bool canDamage = true;
     public float dpsFlame = 1;
     private bool colliderOn;
+    private bool damagePlayer = true;
+    public HealthFlame healthFlame;
 
     private void Start()
     {
         colliderOn = false;
     }
+
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -25,11 +29,23 @@ public class FlamethrowerBase : MonoBehaviour
         }
     }
     
+    
     IEnumerator canDamageTimer()
     {
         canDamage = false;
         yield return new WaitForSeconds(dpsFlame);
         canDamage = true;
+    }
+
+    IEnumerator DamagePlayerTimer()
+    {
+        if (damagePlayer)
+        {
+            damagePlayer = false;
+            healthFlame.Damage(1);
+            yield return new WaitForSeconds(2);
+            damagePlayer = true;
+        }
     }
     private void Update()
     {
@@ -37,6 +53,11 @@ public class FlamethrowerBase : MonoBehaviour
         {
             if (colliderOn) colliderOn = false;
             else colliderOn = true;
+        }
+        Debug.Log(damagePlayer);
+        if (colliderOn)
+        {
+            StartCoroutine(DamagePlayerTimer());
         }
     }
 }
