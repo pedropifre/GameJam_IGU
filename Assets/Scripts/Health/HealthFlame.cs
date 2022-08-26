@@ -25,7 +25,7 @@ public class HealthFlame : HealthBase
         }
         else
         {
-            imagem.fillAmount = soPlayer.flameSize * .1f;
+            imagem.fillAmount = (soPlayer.flameSize-3) * .1f;
         }
 
         

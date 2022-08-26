@@ -235,7 +235,7 @@ public class Player : MonoBehaviour
     }
     private void PlayRespawnVFX()
     {
-        VFXManager.Instance.PlayVFXByType(VFXManager.VFXType.RESPAWN, transform.position);
+        VFXManager.Instantiate.PlayVFXByType(VFXManager.VFXType.RESPAWN, transform.position);
     }
     private void OnCollisionStay2D(Collision2D collision)
     {

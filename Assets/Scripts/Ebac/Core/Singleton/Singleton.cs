@@ -7,12 +7,12 @@ namespace Ebac.Core.Singleton
 {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
-        public static T Instance;
+        public static T Instantiate;
 
         private void Awake()
         {
-            if (Instance == null)
-                Instance = GetComponent<T>();
+            if (Instantiate == null)
+                Instantiate = GetComponent<T>();
             else
                 Destroy(gameObject);
         }

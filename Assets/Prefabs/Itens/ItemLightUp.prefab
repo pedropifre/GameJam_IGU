@@ -150,7 +150,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1843207665
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 21e6b80015adc344698c4d7442f6a72e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -193,6 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2722269742735696305}
   - component: {fileID: 2722269742735696206}
+  - component: {fileID: 1686087858659354032}
   m_Layer: 0
   m_Name: Light 2D (1)
   m_TagString: Untagged
@@ -231,7 +232,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.556
-  m_Color: {r: 0.28235295, g: 0.57254905, b: 0.7137255, a: 0.75686276}
+  m_Color: {r: 0.135849, g: 0.72001517, b: 1, a: 0.6901961}
   m_Intensity: 1
   m_LightVolumeIntensity: 0.59
   m_LightVolumeIntensityEnabled: 1
@@ -311,3 +312,19 @@ MonoBehaviour:
   - {x: -0.516294, y: -0.051625967, z: 0}
   - {x: -0.55357075, y: -0.1966989, z: 0.00000047683716}
   - {x: -0.5713744, y: -0.38934064, z: 0.00000047683716}
+--- !u!114 &1686087858659354032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722269742735696304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfd1fc6f5d01714da8c67c78b4ef35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light2d: {fileID: 2722269742735696206}
+  FlickInterval: 0.06
+  FlickRange: 0.05
+  intensity: 1

@@ -10,7 +10,7 @@ public class ItemCollactableFlame : ItemCollactableBase
     {
         base.OnCollect();
         //Debug.Log("Coletado");
-        ItemManager.Instance.AddFlame(3);
+        ItemManager.Instantiate.AddFlame(3);
         colliderp.enabled = false;
     }
 }
