@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlamethrowerBase : MonoBehaviour
 {
+    public AudioSource flames;
     public bool canDamage = true;
     public float dpsFlame = 1;
     private bool colliderOn;
@@ -51,8 +52,16 @@ public class FlamethrowerBase : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (colliderOn) colliderOn = false;
-            else colliderOn = true;
+            if (colliderOn)
+            {
+                flames.Stop();
+                colliderOn = false;
+            }
+            else
+            {
+                flames.Play();
+                colliderOn = true;
+            }
         }
         Debug.Log(damagePlayer);
         if (colliderOn)

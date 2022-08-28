@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     private float _curentSpeed;
     [SerializeField]private bool canJump = true;
-    private bool canMove = true;
+    public bool canMove = true;
 
     private Animator _currentPlayer;
     public AudioRandomPlayClips randomShoot;
@@ -139,11 +139,11 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             _curentSpeed = soPlayerSetup.speedRun;
-            _currentPlayer.speed = 2;
+            _currentPlayer.speed = 1;
         }
         else
         {
-            _curentSpeed = soPlayerSetup.speed;
+            _curentSpeed = soPlayerSetup.speedRun;
             _currentPlayer.speed = 1;
         }
             

@@ -12,5 +12,6 @@ public class ItemCollactableFlame : ItemCollactableBase
         //Debug.Log("Coletado");
         ItemManager.Instantiate.AddFlame(3);
         colliderp.enabled = false;
+        audioSource.Play();
     }
 }

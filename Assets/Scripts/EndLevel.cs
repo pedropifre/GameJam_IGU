@@ -11,8 +11,11 @@ public class EndLevel : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
+            var player = collision.GetComponent<Player>();
+            player.canMove = false;
             animator.SetTrigger("Fineshed");
             StartCoroutine(NextLevel());
+            player.canMove = true;
         }
         
     }
@@ -21,5 +24,6 @@ public class EndLevel : MonoBehaviour
     {
         yield return new WaitForSeconds(6f);
         SceneManager.LoadScene(level);
+        
     }
 }
