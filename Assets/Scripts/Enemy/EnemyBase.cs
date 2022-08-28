@@ -50,7 +50,7 @@ public class EnemyBase : MonoBehaviour
 
             if(health != null)
             {
-                health.Damage(damage);
+                
                 
                 //PlayAttackAnimation();
             }
@@ -60,6 +60,7 @@ public class EnemyBase : MonoBehaviour
             {
                 Debug.Log("Esquerdo");
                 player.PlayDamageEffect("Left");
+                health.Damage(damage);
 
             }
             else if (collision.transform.position.x > transform.position.x &&
@@ -67,6 +68,7 @@ public class EnemyBase : MonoBehaviour
             {
                 Debug.Log("Direito");
                 player.PlayDamageEffect("Right");
+                health.Damage(damage);
             }
             else if (isJumpable &&
                 collision.transform.position.y > transform.position.y + EnemyKillYLimit)
@@ -81,7 +83,8 @@ public class EnemyBase : MonoBehaviour
                 collision.transform.position.y > transform.position.y + EnemyKillYLimit)
             {
                 Debug.Log("cima");
-                player.PlayDamageEffect("Right");
+                player.PlayDamageEffect("Left");
+                health.Damage(damage);
             }
 
         }

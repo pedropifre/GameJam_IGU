@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        soPlayerSetup.life = 3;
+        soPlayerSetup.life = 6;
         soPlayerSetup.enemiesKilled = 0;
         lifeText.value = soPlayerSetup.life;
         //telaFinal.SetActive(false);
@@ -260,7 +260,11 @@ public class Player : MonoBehaviour
     }
     public void SpawnPlayer()
     {
-        gameObject.transform.position = spawnPoint.transform.position;
+        Destroy(_currentPlayer);
+        _currentPlayer = Instantiate(soPlayerSetup.player, spawnPoint.transform);
+        Debug.Log("dsjdfn");
+        _currentPlayer.GetComponent<PlayerDestroyerHelper>().player = GameObject.FindObjectOfType<Player>();
+        healthFlame.animator = _currentPlayer.GetComponent<Animator>();
         _currentPlayer.SetTrigger(soPlayerSetup.triggerLive);
         PlayRespawnVFX();
         

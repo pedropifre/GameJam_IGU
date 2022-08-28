@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: -3.6, y: 0, z: 0}
-  timeToDestroy: 2
+  timeToDestroy: 5
   side: 1
   damageAmount: 1
 --- !u!58 &-2539108506418709853

@@ -69,12 +69,13 @@ public class HealthFlame : HealthBase
       
         if (animator != null)
         {
-            Debug.Log("morto");
+            //Debug.Log("morto");
             animator.SetTrigger("Death");
             gameObject.transform.tag = "Batata";
             yield return new WaitForSeconds(2f);
             animator.SetTrigger("Live");
             gameObject.transform.position = spawnPoint.position;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
             gameObject.transform.tag = "Player";
             //gameObject.GetComponent<Collider2D>().enabled = true;
             

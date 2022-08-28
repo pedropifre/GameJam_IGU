@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8109655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75.67161, y: -11.709604, z: -0.025541551}
+  m_LocalPosition: {x: 74.9, y: -11.709604, z: -0.025541551}
   m_LocalScale: {x: 3.6302683, y: 3.6302683, z: 3.6302683}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1391,6 +1391,9 @@ MonoBehaviour:
   timeBetweenShot: 2
   playerSideReference: {fileID: 2016892962}
   randomShoot: {fileID: 0}
+  canShootLoad: 0
+  ShootLoad: 3
+  ShootLoadBreak: 0.2
 --- !u!61 &294141647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1661,7 +1664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332194906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 83.50161, y: -11.689604, z: -0.025541551}
+  m_LocalPosition: {x: 82.30161, y: -11.689604, z: -0.025541551}
   m_LocalScale: {x: 4.2518954, y: 3.6302683, z: 4.2518954}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2544,7 +2547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1051464134068276658, guid: 49a8a8bab6b1e354291b9b83729dfb80, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 109
+      value: 107.8
       objectReference: {fileID: 0}
     - target: {fileID: 1051464134068276658, guid: 49a8a8bab6b1e354291b9b83729dfb80, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5138,6 +5141,9 @@ MonoBehaviour:
   timeBetweenShot: 4
   playerSideReference: {fileID: 1675340132}
   randomShoot: {fileID: 0}
+  canShootLoad: 0
+  ShootLoad: 3
+  ShootLoadBreak: 0.2
 --- !u!61 &1013542817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5567,6 +5573,9 @@ MonoBehaviour:
   timeBetweenShot: 4
   playerSideReference: {fileID: 704374568}
   randomShoot: {fileID: 0}
+  canShootLoad: 0
+  ShootLoad: 3
+  ShootLoadBreak: 0.2
 --- !u!61 &1127521950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5927,6 +5936,9 @@ MonoBehaviour:
   timeBetweenShot: 3
   playerSideReference: {fileID: 1452536639}
   randomShoot: {fileID: 0}
+  canShootLoad: 0
+  ShootLoad: 3
+  ShootLoadBreak: 0.2
 --- !u!61 &1179506777
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6192,6 +6204,9 @@ MonoBehaviour:
   timeBetweenShot: 2
   playerSideReference: {fileID: 1144211126}
   randomShoot: {fileID: 0}
+  canShootLoad: 0
+  ShootLoad: 3
+  ShootLoadBreak: 0.2
 --- !u!61 &1322648935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6268,6 +6283,9 @@ MonoBehaviour:
   timeBetweenShot: 2
   playerSideReference: {fileID: 2047908131}
   randomShoot: {fileID: 0}
+  canShootLoad: 0
+  ShootLoad: 3
+  ShootLoadBreak: 0.2
 --- !u!61 &1347615267
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6324,7 +6342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366907831}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 130.05162, y: -11.049604, z: -0.025541551}
+  m_LocalPosition: {x: 131, y: -11.049604, z: -0.025541551}
   m_LocalScale: {x: 10.6760845, y: 3.6302683, z: 4.2518954}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13535,7 +13553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757067412}
   m_LocalRotation: {x: -0, y: -0, z: 0.0018537206, w: -0.9999983}
-  m_LocalPosition: {x: -67.518234, y: -4.649035, z: -0.00756225}
+  m_LocalPosition: {x: -68.71823, y: -4.649035, z: -0.00756225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14401,7 +14419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1912518475}
-  level: 1
+  level: 2
 --- !u!95 &1912518475
 Animator:
   serializedVersion: 4
@@ -14576,6 +14594,9 @@ MonoBehaviour:
   timeBetweenShot: 3
   playerSideReference: {fileID: 1689373763}
   randomShoot: {fileID: 0}
+  canShootLoad: 0
+  ShootLoad: 3
+  ShootLoadBreak: 0.2
 --- !u!61 &1925967211
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -10,4 +10,9 @@ public class LevelManager : Singleton<LevelManager>
     {
         SceneManager.LoadScene(levelCount);
     }
+
+    public void ExitAplication()
+    {
+        Application.Quit();
+    }
 }

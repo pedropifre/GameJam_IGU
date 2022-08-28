@@ -13,6 +13,9 @@ public class EnemyShoot : MonoBehaviour
     private Coroutine _currentCoroutine;
     public AudioRandomPlayClips randomShoot;
     private bool canShoot = true;
+    public bool canShootLoad = false;
+    public int ShootLoad = 3;
+    public float ShootLoadBreak = .2f;
     
     
     
@@ -25,12 +28,31 @@ public class EnemyShoot : MonoBehaviour
         canShoot = true;
         
     }
+    IEnumerator StartShootLoad()
+    {
+        canShoot = false;
+        var controllerLoad = ShootLoad;
+        while (controllerLoad >= 1)
+        {
+            Shoot();
+            yield return new WaitForSeconds(ShootLoadBreak);
+            controllerLoad--;
+        }
+        yield return new WaitForSeconds(timeBetweenShot);
+        
+        canShoot = true;
+        
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (canShoot && collision.transform.tag == "Player")
+        if (canShoot && collision.transform.tag == "Player" && !canShootLoad)
         {
             StartCoroutine(StartShoot());
             
+        }
+        else if (canShoot && collision.transform.tag == "Player" && canShootLoad)
+        {
+            StartCoroutine(StartShootLoad());
         }
     }
 
